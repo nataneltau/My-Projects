@@ -1,0 +1,20 @@
+winston.py:
+First we add pading to the message so it will divide in 3, 
+in addition make it int so we can manipulate it's bits and count the
+number of packet we will sent. Then we start from the end, that way it 
+worked, don't ask. Every iteration we send the same packet, with
+different seq number represnting the location of the bits and different
+reserved, the reserved are 3 bits we each iteration extract from the message
+integer represntation and shift it by 3 bits.
+
+
+julia.py:
+First we initialize some variables, then while we don't recieve all unique
+packet we sniff pacckets, then we check if the pakcets are the desired one
+using a function I wrote (this function have documentation), if the packet
+is desired we check if we at the beginning, if so initialize some variables
+then we check if the seq_num is in the dict if not we add it with the bits
+in the reserved, after we got all the packets we start to build the message
+we iterate through all keys in the dict in the sorted order and build 
+the message like we dismentle it, at the end make the message to byte
+then decode and return it

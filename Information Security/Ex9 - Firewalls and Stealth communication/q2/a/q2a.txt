@@ -1,0 +1,2 @@
+We first check if the packet is TCP packet, if so we read it's data
+and check if LOVE is inside this data, if so we add to unpersons set

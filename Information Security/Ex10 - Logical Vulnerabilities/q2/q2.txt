@@ -1,0 +1,7 @@
+I used https://davidhamann.de/2020/04/05/exploiting-python-pickle/
+
+We create a new class that have a __reduce__ method in it, as we can see 
+in the documentation of the pickle.loads, __reduce__ intended for 
+reconstructing objects, we can by making the first item of the tuple
+os.system and the second our desired command, run our code in others
+code.

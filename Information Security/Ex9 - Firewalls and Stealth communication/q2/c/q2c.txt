@@ -1,0 +1,4 @@
+We first check if the packet is TCP packet, if so we read it's data
+and check if LOVE is inside this data, if so we add to unpersons set
+else we check if  shannon_entropy on the data return a number higher
+than high_entropy, if so we add to unpersons set

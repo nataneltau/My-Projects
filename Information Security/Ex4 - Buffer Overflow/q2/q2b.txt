@@ -1,0 +1,20 @@
+After we discover the array location and its needed length, we wrote
+the shell code:
+most of this from the recitation, I added zero in the end
+of the string without actually write zero (line 7), we also make esi equal
+to zero, again without wrtiting zero (line 3), in ecx and edx should be 
+zeroes from what i read on the execve(), it's work. in addition the
+instruction mov eax, 0x0b contain zeroes in its opcode, so did
+another logic (line 4-5)
+
+q2b.py - python code:
+first we get the binary of the "shellcode.asm" and put it in array,
+then we pad it until the length of the array was 67.
+I pad it is some cool way if you want to see the padding uncomment
+line 65 and it will print it.
+after the pading we add 4 bytes to the array, this 4 bytes overwrite the
+return address, we overwrite it with the address of the begining of our
+array, but we add the address in the array in reverse order cause big
+and little endian and then call os.execl.
+basically the python code pad the array, at the end add the address 
+and call os.execl. 

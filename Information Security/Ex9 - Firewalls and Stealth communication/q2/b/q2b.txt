@@ -1,0 +1,12 @@
+Love the key and IV I choose
+winston.py:
+First we create AES object with out key and IV, then we pad our message
+and encrypt it, we can assume no message is longer than 15 bytes,
+after that we send it to julia our love!!!
+
+
+julia.py:
+First we create AES object with out key and IV, then we listen for a 
+connection, then read the message we got, decrypt it and remove the 
+padding, then return with the message.
+

@@ -1,0 +1,22 @@
+wooooooooooow
+wooooooooooow
+
+sorry it was annoying question
+My solution in get_payload function (The other function was too easy) was
+to just pad the code with nop's to the left, I used a method we saw in class
+to make it more easy (easy lol...) then I add the return address in big endian and that's it...
+but it doesn't work. After more than 10h on it I found out that all I need
+to do is also pad with nop's from the right of the shellcode so my "push"
+in the shellcode will not overwrite my own code but why will someone tell
+us that? no it's better to spend 10 hours on 3 lines in python.
+still best course ever!
+
+So in short my solution is just sending the size in big endian, then pad my shellcode
+from left with nop's, then pad it from right with nop's, 500 didn't work but
+700 worked. At the end adding return address in big endian.
+
+
+shellcode documention:
+I document the shellcode.asm, but what I did is the same logic as in the
+shell_in_cli.c. open socket then initialize sockaddr_in struct, call
+connect, then dup2 on socket and stdin/out/err. At the end call execv.

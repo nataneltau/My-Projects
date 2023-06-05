@@ -1,0 +1,22 @@
+Just want to said, it was annoying to understand what exactly our ip and mac
+next time it would be nice to put a video tutorial :)
+
+is packet ot original gateway function:
+We return True iff the source ip and mac is different than ours (we don't
+send the packet) and the mac destination is the gateway (meaning we want
+to send it to the internet)
+
+
+create poison function:
+In this function we create an ARP packet putting op = 2 (S.ARP.is_at) meaning
+we say our ip and mac, and we disguise ourself as the gateway by using 
+his IP and our mac address and send it to the machine we want to cheat
+using his ip and mac. That way we poison only him 
+
+
+is stolen packet function:
+In this function we return True iff the packet mac destination is our 
+mac address and the IP destination is different than ours.
+The logic behind this is that whoever send this packet, send it to us
+not because it is meant for us but because he thought we are the
+gateway... hahaha (imagine evil lough)

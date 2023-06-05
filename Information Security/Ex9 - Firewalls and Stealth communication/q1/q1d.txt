@@ -1,0 +1,3 @@
+First if the packet is not TCP syn we let it in, else we create an 
+answer of Syn Ack, like the normal port would answer if he was getting
+the packet and was open

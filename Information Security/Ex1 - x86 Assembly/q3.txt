@@ -1,0 +1,7 @@
+This function is used to concatenate two strings. its received two pointers,
+one in EDI and one in ESI. we want to concatenate the string ESI is pointing
+to, to the string EDI is pointing to. we do so by making DL equate to zero
+(using XOR EDX, EDX), then we travel on the string that EDI pointing to until we
+come to a null char ('\0' which his ASCII value is 0) then we start (in _LABEL2)
+to concatenate the string ESI is pointing to, to the end of the string EDI pointing
+to, char by char, we doing so until the end of ESI string (again until '\0' which equal to zero)

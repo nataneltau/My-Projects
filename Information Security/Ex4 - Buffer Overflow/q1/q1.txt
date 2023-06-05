@@ -1,0 +1,11 @@
+The vulnerability is that strcat concatenate string to the buffer until it
+get to null terminator (aka '\0'), we can send a password that it's length
+is at most 10, but password with length 10 will get us buffer overfllow
+and it will overwrite the 'auth' variable, if we want to use it for our 
+advantage we need to make sure auth == 1, that can happen by overwrite it with the value 1.
+https://stackoverflow.com/questions/5793636/why-is-strcat-considered-as-unsafe
+
+
+My solution is to send 10 length password that it's last character is the 
+character which his ascii value is 1, actually any password with length
+10 and last character ascii 1 will work

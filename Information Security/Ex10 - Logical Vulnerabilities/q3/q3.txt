@@ -1,0 +1,5 @@
+In run.py Bob get the index of which our ':' ends and by that check
+our username and password, similar to the intel vulnerability we saw in 
+class, we can send him a string that ':' is the first and second
+characters, making him comparing empty string to empty string and
+of course they will be equal 

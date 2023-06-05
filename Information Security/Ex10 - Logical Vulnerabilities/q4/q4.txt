@@ -1,0 +1,8 @@
+Like we saw in the class that app in google.play will be verfied but
+actually we will download malicous software, same goes for here, Alice
+use data['command'] so she will get the last one related to this, and
+Bob use search so he will get the first one related to 'command', because
+we know the signature of the command 'echo cool' (we saw in the example
+but without it we probably could sniff it by some way) all we need to do
+is making Alice check 'echo cool' with it's signature and in the first
+argument sending our actually code we want to execute
