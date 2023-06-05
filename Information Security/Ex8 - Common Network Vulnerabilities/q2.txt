@@ -1,0 +1,9 @@
+First we check if the WEBSITE is inside the packet, if not then it's
+not our victim website (the one we going to make DoS) retreat. Else
+make IP pakcet and exchange the source and destination IP so it will look
+like the legit website send it, also make TCP packet with the correct arguments
+(like seq number right, ack number right, destination port etc.) in addition
+close the connection (put flag as "AF"). At the end create the injected packet
+using S.Raw, then unite all this packet and send the united packet. 
+Boom we DoS the course website, next target, moodle... 
+( •̀ ᴗ •́ )و ̑̑ (should be devil emoji :) )

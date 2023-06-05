@@ -1,0 +1,17 @@
+The vulnerability run.py has it's Time of Check to Time of Use (TOCTTOU)
+
+Our main code is in the function injection_through_json(), there is also
+the function execute_run() that used by another process (using 
+multiprocessing) and basically run run.py with our malicious file.
+In injection_through_json we first open example.json and read it's content
+since it has the correct signature for 'echo cool', then we write it's
+content to cracked.json and make sure it's written (with flush), that
+way when Alice will check our file content she will read the legit content
+we got and until she will finish checking this content we will change 
+the file content so when Bob will read it, it will contain the malicious
+content. So after that we make a new process so it will run execute_run.
+then we put our process to sleep so we will be sure run.py read our 
+legit content, after that we change the content of cracked.json so
+when Bob will read it again he will read the malicious content, that
+way we pass the check but actually have a bomb in the bag, that's 
+TOCTTOU, at the end we wait for run.py to finish

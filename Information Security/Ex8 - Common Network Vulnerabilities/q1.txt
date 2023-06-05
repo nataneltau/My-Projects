@@ -1,0 +1,22 @@
+q1.pcap:
+I enter to the login site and enter my username and password in the small
+machine, while wireshark was open in the regular machine (aka big machine),
+then I stop the recording of the wireshark and I got 7 packets, I identify
+the packet with the login information and saved it in q1.pcap
+
+
+packet filter function:
+first we check if the packet has TCP layer (http works over TCP), if not we
+return False, else we return True iff the destination port of the packet is 80
+(the port for http connections) and "http" is found in the packet summary
+over TCP layer.
+
+parse_packet:
+In this function we use auxiliary function that basicly split text by specific strings
+(the complete documention inside the code), first we can see that in the packet
+the web sent username is after "username=" and before '&' and password is at the 
+end and after "password=", so we make the packet as a string then use
+urlparse.path, after that we check if the WEBSITE + "/2023/logn" is in the url, if so 
+we continue (it's the wanted url) then we extract the username and password
+from the urlparse.path and if they arn't empty we return them as a tuple
+all this we do in try and except block so errors will not make us crash

@@ -1,0 +1,2 @@
+In run.py Bob use eval, and eval will execute code if it's a legal
+expression in python, so we just use "print("hacked")" :)

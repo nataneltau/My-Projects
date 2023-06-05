@@ -1,0 +1,5 @@
+The vulnerability in the design is that we block only if we recieve more
+than 15 syn packets in 60 seconds, so what the attacker need to do it's
+send only 14 packets per minute, as long as he did it he can send it
+forever and our firewall will not block it, after some time there will
+be too much connections open, we will crush :(

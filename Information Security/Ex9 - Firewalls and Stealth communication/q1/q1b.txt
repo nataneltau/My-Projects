@@ -1,0 +1,12 @@
+on_packet function:
+Firstwe check if this packet is TCP packet and the flag is syn, so it
+may be a stealth syn scan. Then we check if it's the first time we 
+see this ip, if so we just add it to the dic, else iterate through all
+items in list that relate to ip and check it there are times that are
+earlier than WINDOW ago, delete them. At the end add the current time
+to the list and update the dict, then check if we recieve syn packet 
+from this ip more than 15 times in less than WINDOW, if so block it.
+
+
+generate_block_command function:
+Just return the command we saw in class to add something to iptables

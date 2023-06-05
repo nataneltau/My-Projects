@@ -1,0 +1,27 @@
+encode function:
+In this function we go through all bytes in data and add them
+to result_data and xor with
+0xff only the ones that are bigger ot equal to 0x80 and save
+thier indices
+
+
+get_decoder_code function:
+First we make bl == 0xff by some nice trcik (push 0, pop ebx, dec ebx)
+then we sort the indices cause in the exercise it's said the may be random
+then for all indices we do "xor byte ptr [eax + i], bl"
+when i is some item in indices
+
+
+get ascii_shellcode function:
+In this function we encode our shellcode from q2, then decode it's indices
+we need here add right padding because of the eax initialization.
+we calculate the eax correct value
+then we add some instruction before decode block
+for insert eax the correct value (push esp, pop eax, sub eax, eax_founder).
+then we concatante to it the decode, encode and right padding like in q2
+
+
+get_payload function:
+Similar to q2 this time we dont pad from right cause get_ascii_shellcode 
+did it already, only pad from left to fit 1040 bytes, add return address
+and null byte.

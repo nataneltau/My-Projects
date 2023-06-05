@@ -1,0 +1,8 @@
+The vulnerability is that size is unsigned int and it's equal to -1
+meaning it's equal to 0xffffffff, in unsigned int it's the maximum value
+(something around 4 billion) so we can send message in that size,
+which is way bigger than 1024 which is the buffer size, so my solution
+is to just send a buffer in size 1424 which seems to overwrite the
+return address and made the server crash. 
+Also I found out that the buffer start at address 0xbfffdd4c and
+the return address at 0xbfffe160-4

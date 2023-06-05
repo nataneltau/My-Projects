@@ -1,0 +1,16 @@
+generate_syn_packets function:
+In this function for all the port in ports list we make a packet with
+the desired ip destination and the destination port, with 'S' flag
+(syn). this packet we append to the list
+
+
+analyze_scan function:
+First we go through all the packet we recieve answer and was sent to us,
+we check what flag it is and add it to dict in accordance, then we go 
+through all the packet we sent and don't got answer for and add them to 
+the dict as filtered. At the end we return the dict
+
+
+This is called stealth SYN scan because all we do is sending syn packets 
+to some port but we don't intend to really connect to this port, it's 
+stealth because not a real connection was create (there wasn't a 3 handshake)
